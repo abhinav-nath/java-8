@@ -1,4 +1,4 @@
-package com.codecafe.java8.lambdas;
+package com.codecafe.java8.functionalinterfaces;
 
 import java.util.Comparator;
 
@@ -15,7 +15,7 @@ public class ComparatorLambdaExample {
 			}
 		};
 
-		System.out.println("Result with legacy Comparator : " + comparator.compare(3,2));
+		System.out.println("Result with legacy Comparator : " + comparator.compare(3, 2));
 
 
 		// Java 8 Lambda Syntax

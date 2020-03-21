@@ -1,0 +1,15 @@
+-------------------
+ Problem statement
+-------------------
+
+Create a Person class with following properties :
+
+ 1. first name
+ 2. last name
+ 3. age
+ 
+Write programs in both Java 7 style and Java 8 style to achieve following :
+
+ 1. Sort list by last name
+ 2. Create a method that prints all the elements in the list
+ 3. Create a method that prints all the people that have the last name beginning with C
