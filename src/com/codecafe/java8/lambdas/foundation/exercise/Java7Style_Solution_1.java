@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution_2_Java7Style {
+public class Java7Style_Solution_1 {
 
 	public static void main(String[] args) {
 
@@ -32,62 +32,31 @@ public class Solution_2_Java7Style {
 		});
 
 
-		System.out.println("1 print all elements in the list :");
+		System.out.println("print all elements in the list :");
 		// Create a method that prints all the elements in the list
 		printAll(people);
-		
-		// or we can also use
-		System.out.println("\n2 print all elements in the list :");
-		printConditionally(people, new Condition() {
-			
-			@Override
-			public boolean test(Person p) {
-				return true;
-			}
-		});
-		
 
-		System.out.println("\nprint all the people having last name beginning with C :");
+
+		System.out.println("\nprint all people having last name beginning with C :");
 		// Create a method that prints all the people that have the last name beginning with C
-		printConditionally(people, new Condition() {
-			
-			@Override
-			public boolean test(Person p) {
-				return p.getLastName().startsWith("C");
-			}
-		});
-		
-		System.out.println("\nprint all the people having first name beginning with T :");
-		// Create a method that prints all the people that have the first name beginning with T
-		printConditionally(people, new Condition() {
-			
-			@Override
-			public boolean test(Person p) {
-				return p.getFirstName().startsWith("T");
-			}
-		});
-		
+		printLastNameBeginningWithC(people);
+
 	}
-	
+
 	private static void printAll(List<Person> people) {
 
 		for(Person p : people)
 			System.out.println(p);
 
 	}
-	
-	private static void printConditionally(List<Person> people, Condition condition) {
+
+	private static void printLastNameBeginningWithC(List<Person> people) {
 
 		for(Person p : people) {
-			if(condition.test(p))
+			if(p.getLastName().startsWith("C"))
 				System.out.println(p);
 		}
+
 	}
-	
-}
 
-
-interface Condition {
-	// method which looks at a person and decides whether that person should be included or not
-	boolean test(Person p);
 }
