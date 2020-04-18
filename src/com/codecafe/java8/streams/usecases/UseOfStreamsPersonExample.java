@@ -1,4 +1,4 @@
-package com.codecafe.java8.streams;
+package com.codecafe.java8.streams.usecases;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,9 +7,10 @@ import static java.util.stream.Collectors.*;
 import com.codecafe.java8.streams.model.Gender;
 import com.codecafe.java8.streams.model.Person;
 
-public class UseOfStreams {
+public class UseOfStreamsPersonExample {
 
 	public static void main(String[] args) {
+
 		List<Person> people = Arrays.asList(
 				new Person("John", Gender.MALE, 35),
 				new Person("Charles", Gender.MALE, 75),
