@@ -14,8 +14,8 @@ public class PrimeNumber {
 	private static boolean isPrime(int number) {
 
 		return number > 1 &&
-				IntStream.range(2, number)
-				         .noneMatch(i -> number % i == 0);
+                IntStream.range(2, number)
+                         .noneMatch(i -> number % i == 0);
 	}
 
 }

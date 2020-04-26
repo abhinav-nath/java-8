@@ -16,9 +16,9 @@ public class SummaryStatistics {
 		
 		System.out.println("list of random numbers :\n" + randomNumbers);
 		
-		IntSummaryStatistics stats = randomNumbers.stream()
-				                                  .mapToInt((x) -> x)
-				                                  .summaryStatistics();
+        IntSummaryStatistics stats = randomNumbers.stream()
+                                                  .mapToInt((x) -> x)
+                                                  .summaryStatistics();
 		
 		System.out.println("\nmaximum number in the list : " + stats.getMax());
 		System.out.println("minimum number in the list : " + stats.getMin());

@@ -11,10 +11,10 @@ public class FindDistinctValues {
 		List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 3, 4, 5, 6, 6, 6, 7, 8, 9, 9, 10);
 
 		// find out squares of distinct numbers
-		System.out.println(numbers.stream()
-				                  .map(n -> n * n)
-				                  .distinct()
-				                  .collect(Collectors.toList()));
+        System.out.println(numbers.stream()
+                                  .map(n -> n * n)
+                                  .distinct()
+                                  .collect(Collectors.toList()));
 	}
 
 }

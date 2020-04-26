@@ -1,0 +1,68 @@
+-----------------------------------
+ Parallel Programming with Streams
+-----------------------------------
+
++ Parallel as a master switch +
+
+In Imperative style, the structure of sequential code is very different from the structure of the concurrent code.
+
+But using streams, the structure of sequential code is identical to the structure of concurrent code.
+
+There are two ways to make your stream parallel.
+
+Example : SequentialAndParallelStream.java
+
+1. If you are the creator of the stream                                                                        -->  use parallelStream()
+2. If you are not the creator of the stream and you want to parallelize it after the stream has been created   -->  use stream.parallel()
+
+
+Question : If there is a parallel(), is there also a sequential() ?
+
+Answer : Yes ! There is a sequential() as well.
+
+Example 1
+---------
+use(numbers.parallelStream());
+
+private static void use(Stream<Integer> stream) {
+
+     stream
+         .sequential()
+         .map(e -> transform(e))
+         .forEach(System.out::println);
+}
+
+What will happen ??
+
+Even though we created a parallel stream, it will be executed sequentially.
+
+
+Example 2
+---------
+use(numbers.stream());
+
+private static void use(Stream<Integer> stream) {
+
+     stream
+         .parallel()
+         .map(e -> transform(e))
+         .sequential()
+         .forEach(System.out::println);
+}
+
+What will happen ??
+
+We can naively think that the map() will run in parallel but forEach() will run in sequential mode.
+
+Unfortunately, this is not the case. In this kind of scenario, the LAST ONE WINS !!
+
+THE LAST ONE means the one before the terminal operation.
+
+So parallel() in this case will be a "no operation" because sequential() before the terminal operation forEach() will make
+the behavior of the entire pipeline SEQUENTIAL.
+
++ FYI note +
+There are two operations offered by streams :
+
+1. Intermediate operations -> these are lazy evaluations and are postponed until you hit a terminal operation.
+2. Terminal operations -> these are the decisive operations.

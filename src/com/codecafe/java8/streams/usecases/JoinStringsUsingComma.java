@@ -11,9 +11,9 @@ public class JoinStringsUsingComma {
 		List<String> strings = Arrays.asList("India", "USA", "Mexico", "Japan", "France", "Germany", "Italy", "U.K.", "Canada");
 		
 		// convert strings to upper case and join them using comma
-		System.out.println(strings.stream()
-				                  .map(s -> s.toUpperCase())
-				                  .collect(Collectors.joining(", ")));
+        System.out.println(strings.stream()
+                                  .map(s -> s.toUpperCase())
+                                  .collect(Collectors.joining(", ")));
 
 	}
 

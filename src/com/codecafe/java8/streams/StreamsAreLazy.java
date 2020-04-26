@@ -11,12 +11,12 @@ public class StreamsAreLazy {
 		
 		// double the first even number greater than 3
 		System.out.println("result : " + 
-				numbers.stream()
+                numbers.stream()
                        .filter(StreamsAreLazy::isGreaterThan3)
                        .filter(StreamsAreLazy::isEven)
                        .map(StreamsAreLazy::doubleIt)
                        .findFirst()
-				);
+                );
 	}
 
 	public static boolean isGreaterThan3(int number) {

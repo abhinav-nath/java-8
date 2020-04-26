@@ -32,41 +32,41 @@ public class UseOfStreamsPersonExample {
 		System.out.println("count of people : " + people.size());
 		
 		// get the count of males
-		long countOfMales = people.stream()
-				                  .filter(person -> person.getGender() == Gender.MALE)
-				                  .count();
+        long countOfMales = people.stream()
+                                  .filter(person -> person.getGender() == Gender.MALE)
+                                  .count();
 		
 		System.out.println("count of males : " + countOfMales);
 		
 		// get the count of females
-		long countOfFemales = people.stream()
-				                    .filter(person -> person.getGender() == Gender.FEMALE)
-				                    .count();
+        long countOfFemales = people.stream()
+                                    .filter(person -> person.getGender() == Gender.FEMALE)
+                                    .count();
 		
 		System.out.println("count of females : " + countOfFemales);
 
 		// get the names of all females
-		List<String> allFemales = people.stream()
-				                        .filter(person -> person.getGender() == Gender.FEMALE)
-				                        .map(person -> person.getName())
-				                        .collect(toList());
+        List<String> allFemales = people.stream()
+                                        .filter(person -> person.getGender() == Gender.FEMALE)
+                                        .map(person -> person.getName())
+                                        .collect(toList());
 
 		System.out.println("all females : " + allFemales);
 
 		// get the names of all females above 25
-		List<String> femalesAbove25 = people.stream()
-				                            .filter(person -> person.getGender() == Gender.FEMALE && person.getAge() > 25)
-				                            .map(person -> person.getName())
-				                            .collect(toList());
+        List<String> femalesAbove25 = people.stream()
+                                            .filter(person -> person.getGender() == Gender.FEMALE && person.getAge() > 25)
+                                            .map(person -> person.getName())
+                                            .collect(toList());
 
 		System.out.println("females above 25 : " + femalesAbove25);
 
 		// get the names of all males above 35 in upper case
-		List<String> malesAbove35 = people.stream()
-				                          .filter(person -> person.getGender() == Gender.MALE && person.getAge() > 35)
-				                          .map(person -> person.getName())
-				                          .map(name -> name.toUpperCase())
-				                          .collect(toList());
+        List<String> malesAbove35 = people.stream()
+                                          .filter(person -> person.getGender() == Gender.MALE && person.getAge() > 35)
+                                          .map(person -> person.getName())
+                                          .map(name -> name.toUpperCase())
+                                          .collect(toList());
 		
 		System.out.println("names of males above 35 in upper case : " + malesAbove35);
 	}

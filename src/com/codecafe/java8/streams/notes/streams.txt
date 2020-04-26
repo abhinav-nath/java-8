@@ -1,0 +1,1 @@
+"Lambdas are the gateway drug. Streams are the real addiction." - Venkat Subramaniam on Streams

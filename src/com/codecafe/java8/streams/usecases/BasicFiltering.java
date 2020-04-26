@@ -11,9 +11,9 @@ public class BasicFiltering {
 		List<String> strings = Arrays.asList("ABC", "DEF", "GH", "IJKL", "MN", "OPQ");
 		
 		// filter strings with more than 2 characters
-		System.out.println(strings.stream()
-				                  .filter(s -> s.length() > 2)
-				                  .collect(Collectors.toList()));
+        System.out.println(strings.stream()
+                                  .filter(s -> s.length() > 2)
+                                  .collect(Collectors.toList()));
 
 	}
 
