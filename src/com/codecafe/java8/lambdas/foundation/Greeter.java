@@ -10,11 +10,11 @@ public class Greeter {
         Greeter greeter = new Greeter();
         Greeting greeting = new HelloWorldGreeting();
         greeter.greet(greeting); // passing a behavior to the greet() method
-        
+
         Greeting lambdaGreeting = () -> System.out.println("Hello Lambda");
-        
+
         lambdaGreeting.perform();
-        
+
         greeter.greet(lambdaGreeting);
     }
 }

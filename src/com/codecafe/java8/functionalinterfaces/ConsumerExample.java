@@ -4,11 +4,11 @@ import java.util.function.Consumer;
 
 public class ConsumerExample {
 
-	public static void main(String args[]) {
+    public static void main(String args[]) {
 
-		Consumer<String> c = (s) -> System.out.println(s.toUpperCase());
+        Consumer<String> c = (s) -> System.out.println(s.toUpperCase());
 
-		c.accept("java8");
-		
-	}
+        c.accept("java8");
+
+    }
 }
