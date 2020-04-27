@@ -1,7 +1,7 @@
 "We solve one set of problems only to create a new set of problems."
 
 + Java 1 introduced the concept of THREADS.
-    It was really great at that time. Using Threads to parallelize tasks using using only one set of APIs.
+    It was really great at that time. Using Threads to parallelize tasks using only one set of APIs.
     You don't have to write different code for different operating systems.
     But after sometime, programmers realized that Threads are really not that lightweight.
     It was not a good idea to create threads after threads.

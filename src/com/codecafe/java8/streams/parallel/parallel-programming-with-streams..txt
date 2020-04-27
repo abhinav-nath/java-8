@@ -2,6 +2,8 @@
  Parallel Programming with Streams
 -----------------------------------
 
+https://java2blog.com/java-8-parallel-stream/
+
 + Parallel as a master switch +
 
 In Imperative style, the structure of sequential code is very different from the structure of the concurrent code.
@@ -66,3 +68,36 @@ There are two operations offered by streams :
 
 1. Intermediate operations -> these are lazy evaluations and are postponed until you hit a terminal operation.
 2. Terminal operations -> these are the decisive operations.
+
+
+
+How many threads can I create ? --> BAD question
+
+The right question would be "How many threads should I create ?"
+
+You should be very careful about choosing the number of threads because there is a tipping point after which the performance will start degrading.
+
+There are generally two use cases for parallelism :
+
+1. Computation intensive operations
+2. IO intensive operations
+
+For Computation Intensive operations
+------------------------------------
+    No. of threads <= No. of CPU cores
+
+    Number of threads should be less than or equal to the number of CPU cores.
+    If there are more threads than the number of cores then you will probably get degraded performance.
+    
+For IO Intensive operations
+---------------------------
+    Number of threads may be greater than the number of cores.
+
+
+Formula for determining the number of threads:
+
+                          No. of cores
+No. of threads <=  --------------------------
+                       1 - blocking factor
+                      
+where   0 <= blocking factor < 1

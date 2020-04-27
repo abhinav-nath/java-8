@@ -1,0 +1,115 @@
+---------------------------------------------------------
+ Default Number of threads (DefaultNumberOfThreads.java)
+---------------------------------------------------------
+
+Here are my CPU specifications for this exercise :
+
+CPU
+---
+    Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+
+    Cores:  6
+    Logical processors: 12
+
+-----------------------------------------------------------------------
+ What is the difference between Physical Cores and Logical Processors?
+-----------------------------------------------------------------------
+
++ Well as the name suggests, physical cores are just that, they are physical units on a CPU. Whereas, logical processors are a software abstraction.
+
++ Logical processors are also related to threads.
+  They are enabled by the hyper-threading technology incorporated on select Intel Processors (Hyper Transport on AMD).
+
++ With hyper threading enabled, you essentially get two threads per core.
+
++ So if you have a 6 core processors like the Intel Core i7-8750H processor WITH hyper threading enabled, you essentially get 12 threads running simultaneously.
+  Therefore, you can say you have 12 logical cores.
+
++ Therefore, in short, Logical cores are the number of Physical cores times the number of threads that each core can run.
+  With Hyper-threading, each physical core can run two threads.
+
+  Ref : https://techgearoid.com/articles/difference-between-physical-cores-and-logical-processors/
+
+
++ Having explored that, Let's find out how many cores do we have available to our JVM :
+
+    System.out.println(Runtime.getRuntime().availableProcessors());  // output is 12
+    
++ If we query the common pool of the ForkJoin pool :
+
+    System.out.println(ForkJoinPool.commonPool());
+    
+  We get following information (will vary according to your CPU specification) :
+  
+    java.util.concurrent.ForkJoinPool@4e25154f[Running, parallelism = 11, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]
+    
++ Notice the number of available processors is 12 but the parallelism is 11.
+  The reason behind it is that the Main thread is also part of this pool but it is an external member.
+  
+  Therefore the default number of threads is equal to the number of processors in your machine.
+ 
+
++ So if we have a parallel stream of 40 values, they are going to get processed in batches of 12
+
+  12 + 12 + 12 + 4
+
+ BatchesOfThreads.java
+-----------------------
+
+t: 27--Thread[main,5,main]
+t: 13--Thread[ForkJoinPool.commonPool-worker-9,5,main]
+t: 23--Thread[ForkJoinPool.commonPool-worker-6,5,main]
+t: 7--Thread[ForkJoinPool.commonPool-worker-11,5,main]
+t: 32--Thread[ForkJoinPool.commonPool-worker-13,5,main]
+t: 22--Thread[ForkJoinPool.commonPool-worker-8,5,main]
+t: 31--Thread[ForkJoinPool.commonPool-worker-10,5,main]
+t: 33--Thread[ForkJoinPool.commonPool-worker-4,5,main]
+t: 21--Thread[ForkJoinPool.commonPool-worker-15,5,main]
+t: 37--Thread[ForkJoinPool.commonPool-worker-2,5,main]
+t: 39--Thread[ForkJoinPool.commonPool-worker-1,5,main]
+t: 18--Thread[ForkJoinPool.commonPool-worker-3,5,main]
+
+t: 38--Thread[ForkJoinPool.commonPool-worker-13,5,main]
+t: 25--Thread[ForkJoinPool.commonPool-worker-6,5,main]
+t: 35--Thread[ForkJoinPool.commonPool-worker-8,5,main]
+t: 15--Thread[ForkJoinPool.commonPool-worker-9,5,main]
+t: 6--Thread[ForkJoinPool.commonPool-worker-11,5,main]
+t: 26--Thread[main,5,main]
+t: 36--Thread[ForkJoinPool.commonPool-worker-4,5,main]
+t: 40--Thread[ForkJoinPool.commonPool-worker-10,5,main]
+t: 24--Thread[ForkJoinPool.commonPool-worker-15,5,main]
+t: 20--Thread[ForkJoinPool.commonPool-worker-3,5,main]
+t: 17--Thread[ForkJoinPool.commonPool-worker-1,5,main]
+t: 12--Thread[ForkJoinPool.commonPool-worker-2,5,main]
+
+t: 34--Thread[ForkJoinPool.commonPool-worker-8,5,main]
+t: 14--Thread[ForkJoinPool.commonPool-worker-9,5,main]
+t: 16--Thread[ForkJoinPool.commonPool-worker-13,5,main]
+t: 9--Thread[ForkJoinPool.commonPool-worker-11,5,main]
+t: 3--Thread[ForkJoinPool.commonPool-worker-6,5,main]
+t: 29--Thread[main,5,main]
+t: 8--Thread[ForkJoinPool.commonPool-worker-4,5,main]
+t: 5--Thread[ForkJoinPool.commonPool-worker-10,5,main]
+t: 2--Thread[ForkJoinPool.commonPool-worker-15,5,main]
+t: 11--Thread[ForkJoinPool.commonPool-worker-2,5,main]
+t: 19--Thread[ForkJoinPool.commonPool-worker-3,5,main]
+t: 10--Thread[ForkJoinPool.commonPool-worker-1,5,main]
+
+t: 30--Thread[main,5,main]
+t: 4--Thread[ForkJoinPool.commonPool-worker-13,5,main]
+t: 28--Thread[ForkJoinPool.commonPool-worker-8,5,main]
+t: 1--Thread[ForkJoinPool.commonPool-worker-9,5,main]
+
+
++ Now the question is how to modify this default behavior ?
+
+  There are two ways :
+  
+  1. Configuring number of threads JVM wide:
+     -Djava.util.concurrent.ForkJoinPool.common.parallelism=100
+     
+     This is a terrible idea to adopt because it will be applied to all the parallel processes in your JVM and can drastically degrade the performance.
+     
+  2. Configure programmatically:
+  
+     ChangeNumberOfThreads.java
