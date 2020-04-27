@@ -1,0 +1,14 @@
+----------------------------------------------
+ Some popular functional interfaces in Java 8
+----------------------------------------------
+
+------------------------------------------------------------------
+ Functional Interface      Method                  Mostly Used By
+------------------------------------------------------------------
+ Supplier<T>               T get()                 factories
+
+ Predicate<T>              boolean test(T)         filter
+
+ Function<T, R>            R apply(T)              map
+
+ Consumer<T>               void accept(T)          forEach()
