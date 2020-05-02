@@ -2,6 +2,7 @@ package com.codecafe.java8.streams.usecases;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UseOfStreamsNumbersExample {
 
@@ -37,6 +38,17 @@ public class UseOfStreamsNumbersExample {
                        .map(value -> value * 2)
                        .findFirst()
                 );
+        
+        List<Integer> listOfNumbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
+        
+        // square of all the distinct numbers
+        System.out.println("squares of distinct numbers : " +
+                listOfNumbers.stream()
+                             .map(n -> n * n)
+                             .distinct()
+                             .collect(Collectors.toList())
+                );
+
     }
 
 }
