@@ -1,6 +1,7 @@
 package com.codecafe.java8.streams.usecases;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,7 +49,26 @@ public class UseOfStreamsNumbersExample {
                              .distinct()
                              .collect(Collectors.toList())
                 );
+        
+        // sort the list of numbers
+        System.out.println("numbers sorted by default sorted method : " +
+                listOfNumbers.stream()
+                             .sorted()
+                             .collect(Collectors.toList())
+                );
+        
+        System.out.println("numbers sorted by sorted method with naturalOrder comparator : " +
+                listOfNumbers.stream()
+                             .sorted(Comparator.naturalOrder())
+                             .collect(Collectors.toList())
+                );
 
+        System.out.println("numbers sorted by sorted method with reverseOrder comparator : " +
+                listOfNumbers.stream()
+                             .sorted(Comparator.reverseOrder())
+                             .collect(Collectors.toList())
+                );
+        
     }
 
 }

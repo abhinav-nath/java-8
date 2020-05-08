@@ -1,8 +1,9 @@
 package com.codecafe.java8.streams.usecases;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import static java.util.stream.Collectors.*;
+import java.util.stream.Collectors;
 
 import com.codecafe.java8.streams.model.Gender;
 import com.codecafe.java8.streams.model.Person;
@@ -49,7 +50,7 @@ public class UseOfStreamsPersonExample {
         List<String> allFemales = people.stream()
                                         .filter(person -> person.getGender() == Gender.FEMALE)
                                         .map(person -> person.getName())
-                                        .collect(toList());
+                                        .collect(Collectors.toList());
 
         System.out.println("all females : " + allFemales);
 
@@ -57,7 +58,7 @@ public class UseOfStreamsPersonExample {
         List<String> femalesAbove25 = people.stream()
                                             .filter(person -> person.getGender() == Gender.FEMALE && person.getAge() > 25)
                                             .map(person -> person.getName())
-                                            .collect(toList());
+                                            .collect(Collectors.toList());
 
         System.out.println("females above 25 : " + femalesAbove25);
 
@@ -66,9 +67,33 @@ public class UseOfStreamsPersonExample {
                                           .filter(person -> person.getGender() == Gender.MALE && person.getAge() > 35)
                                           .map(person -> person.getName())
                                           .map(name -> name.toUpperCase())
-                                          .collect(toList());
+                                          .collect(Collectors.toList());
 
         System.out.println("names of males above 35 in upper case : " + malesAbove35);
+        
+        // get the names of people sorted by their ages
+        List<String> sortedByAge = people.stream()
+                                         .sorted(Comparator.comparing(Person::getAge))
+                                         .map(Person::getName)
+                                         .collect(Collectors.toList());
+        
+        System.out.println("people sorted by age : " + sortedByAge);
+        
+        // get the names of people sorted by their names
+        List<String> sortedByName = people.stream()
+                .sorted(Comparator.comparing(Person::getName))
+                .map(Person::getName)
+                .collect(Collectors.toList());
+
+        System.out.println("people sorted by name : " + sortedByName);
+        
+        // get the names of people sorted by the length of their names
+        List<String> sortedByLengthOfName = people.stream()
+                .sorted(Comparator.comparing(p -> p.getName().length()))
+                .map(Person::getName)
+                .collect(Collectors.toList());
+
+        System.out.println("people sorted by length of name : " + sortedByLengthOfName);
     }
 
 }
