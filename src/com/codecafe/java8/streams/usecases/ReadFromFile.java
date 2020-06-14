@@ -13,7 +13,7 @@ public class ReadFromFile {
 
         String searchWord = "localhost";
 
-        System.out.printf("occurence of word [%s] = %d", searchWord, Files.lines(Paths.get(path))
+        System.out.printf("occurrence of word [%s] = %d", searchWord, Files.lines(Paths.get(path))
                                                                           .filter(line -> line.contains(searchWord))
                                                                           .count());
     }
