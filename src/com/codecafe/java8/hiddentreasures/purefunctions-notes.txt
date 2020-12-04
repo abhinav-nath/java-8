@@ -1,0 +1,20 @@
+----------------
+ Pure Functions
+----------------
+
+goto is to structured programming
+as assignment is to functional programming
+
+
+Pure Function:
+
+    Returns the same result for the same input, no many how many times you call it.
+
+    Has no side-effects
+    
+Two rules of purity:
+
+    1. The function does not change anything
+    2. The function does not depend on anything that may possibly change
+
+A pure functions sees no evil and does no evil !

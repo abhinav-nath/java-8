@@ -1,8 +1,8 @@
 package com.codecafe.java8.lambdas.foundation;
 
 @FunctionalInterface
-public interface Greeting {
+public interface LengthOfString {
 
-    public void perform();
+    public int length(String s);
 
 }

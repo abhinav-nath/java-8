@@ -15,20 +15,18 @@ public class PrintListElements {
         List<String> names = Arrays.asList("Tom", "Jerry", "Jim", "John");
 
         // imperative style of programming
-        for(int i=0; i < names.size(); i++) {
+        for (int i = 0; i < names.size(); i++) {
             System.out.print(names.get(i).toUpperCase());
-            if(i != names.size() - 1)
+            if (i != names.size() - 1)
                 System.out.print(", ");
         }
 
         System.out.println();
 
         // decalarative style of programming
-        System.out.println(
-                names.stream()
-                     .map(String::toUpperCase)
-                     .collect(joining(", "))
-                );
+        System.out.println(names.stream()
+                                .map(String::toUpperCase)
+                                .collect(joining(", ")));
     }
 
 }

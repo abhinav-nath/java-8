@@ -1,8 +1,8 @@
 package com.codecafe.java8.lambdas.foundation;
 
 @FunctionalInterface
-public interface Greeting {
+public interface MathOperation {
 
-    public void perform();
+    public void perform(int a, int b);
 
 }

@@ -28,8 +28,8 @@ public class ImperativeVsDeclarative2 {
         /* Declarative Approach -- What result to achieve ? */
 
         List<Integer> uniqueList1 = integerList.stream()
-                .distinct()
-                .collect(Collectors.toList());
+                                               .distinct()
+                                               .collect(Collectors.toList());
 
         System.out.println("Unique List with Imperative approach : " + uniqueList1);
     }
