@@ -49,7 +49,6 @@ public class LambdaUnderTheHood {
         MyFunctionalInterface funLambda = () -> System.out.println("Lambda Implementation");
 
         funLambda.myAbstractMethod();
-
     }
 
 }

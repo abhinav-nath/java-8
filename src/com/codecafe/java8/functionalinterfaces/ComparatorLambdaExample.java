@@ -35,6 +35,6 @@ public class ComparatorLambdaExample {
         };
 
         System.out.println("Result with Lambda 3 : " + comparatorLambda2.compare(3, 2));
-
     }
+
 }
