@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 /*
  * Goal is to make the filterList method generic
- * and return a new list containing elements that match a given input
+ * so that the filterList method can work with any datatype
  */
 public class PredicateExample3 {
 
