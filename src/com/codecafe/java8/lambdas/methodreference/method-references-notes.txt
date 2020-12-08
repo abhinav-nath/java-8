@@ -17,9 +17,10 @@ From its name it is clear that it is used to refer a method in a class.
 
 Syntax :
 
+Instance::methodName
 ClassName::instance-methodName
 ClassName::static-methodName
-Instance::methodName
+ClassName::new
 
 
 Where to use Method Reference ?
