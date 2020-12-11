@@ -13,9 +13,9 @@ public class Burger {
         this.burgerType = burgerType;
     }
 
-    public Burger addVegies() {
-        System.out.println("Adding vegies to the burger");
-        return new Burger(this.burgerType += " Vegie");
+    public Burger addVeggies() {
+        System.out.println("Adding veggies to the burger");
+        return new Burger(this.burgerType += " Veggie");
     }
 
     public Burger addCheese() {
