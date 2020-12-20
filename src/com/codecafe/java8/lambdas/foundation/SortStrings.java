@@ -17,6 +17,7 @@ public class SortStrings {
 
         List<String> words1 = Arrays.asList("ab", "abcd", "abc", "abcde", "a", "abcdef");
 
+        // clumsy anonymous inner class method
         Collections.sort(words1, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
@@ -28,6 +29,7 @@ public class SortStrings {
 
         List<String> words2 = Arrays.asList("ab", "abcd", "abc", "abcde", "a", "abcdef");
 
+        // short and simple lambda expression
         Collections.sort(words2, (s1, s2) -> Integer.compare(s1.length(), s2.length()));
 
         System.out.println(words2);
