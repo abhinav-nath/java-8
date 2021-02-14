@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class UseOfStreamsNumbersExample {
 
@@ -68,7 +69,26 @@ public class UseOfStreamsNumbersExample {
                              .sorted(Comparator.reverseOrder())
                              .collect(Collectors.toList())
                 );
-        
+
+
+        // find 3 distinct smallest numbers from an array of integers
+        int[] numArray = { 4, 2, 1, 4, 5, 6, 7, 3, 2, 9, 3, 2, 1 };
+
+        // with imperative style
+
+        // clone - avoid mutating the original array
+        int[] copy = Arrays.copyOf(numArray, numArray.length);
+
+        // sort
+        Arrays.sort(copy);
+
+        // pick first 3
+        for(int i = 0; i < 3; i++)
+            System.out.println(copy[i] + " "); // still need to write logic to find only distinct
+
+        // now with stream
+        IntStream.of(numArray).distinct().sorted().limit(3).forEach(System.out::println);
+        // original array is not mutated
     }
 
 }
