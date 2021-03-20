@@ -1,4 +1,4 @@
-package com.codecafe.java8.functionalprogramming.designpatterns.strategy;
+package com.codecafe.java8.functionalprogramming.designpatterns.strategy.example2;
 
 public class Stock {
 
