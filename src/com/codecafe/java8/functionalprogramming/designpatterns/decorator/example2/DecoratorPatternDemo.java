@@ -1,4 +1,4 @@
-package com.codecafe.java8.functionalprogramming.designpatterns.decorator;
+package com.codecafe.java8.functionalprogramming.designpatterns.decorator.example2;
 
 /*
  * The Decorator design pattern is used to modify functionality of object at runtime

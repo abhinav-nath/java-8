@@ -1,4 +1,4 @@
-package com.codecafe.java8.functionalprogramming.designpatterns.decorator;
+package com.codecafe.java8.functionalprogramming.designpatterns.decorator.example2;
 
 import java.util.function.Function;
 
