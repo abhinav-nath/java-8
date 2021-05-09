@@ -70,3 +70,5 @@ Now the question is, if we are doing mutation, then what is the problem with it 
  - Maintaining the code becomes really hard
  - Making the code concurrent becomes really hard
  - leads to errors and bugs in the code
+
+Therefore, "Explicit Mutability" should be avoided.

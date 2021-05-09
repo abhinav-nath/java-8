@@ -1,4 +1,4 @@
-package com.codecafe.java8.hiddentreasures;
+package com.codecafe.java8.interfaces;
 
 interface Util {
 
