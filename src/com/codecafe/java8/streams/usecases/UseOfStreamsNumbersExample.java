@@ -40,9 +40,9 @@ public class UseOfStreamsNumbersExample {
                        .map(value -> value * 2)
                        .findFirst()
                 );
-        
+
         List<Integer> listOfNumbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
-        
+
         // square of all the distinct numbers
         System.out.println("squares of distinct numbers : " +
                 listOfNumbers.stream()
@@ -50,14 +50,14 @@ public class UseOfStreamsNumbersExample {
                              .distinct()
                              .collect(Collectors.toList())
                 );
-        
+
         // sort the list of numbers
         System.out.println("numbers sorted by default sorted method : " +
                 listOfNumbers.stream()
                              .sorted()
                              .collect(Collectors.toList())
                 );
-        
+
         System.out.println("numbers sorted by sorted method with naturalOrder comparator : " +
                 listOfNumbers.stream()
                              .sorted(Comparator.naturalOrder())

@@ -24,12 +24,12 @@ public class ComparatorLambdaExample {
 
         System.out.println("Result with Lambda 1 : " + comparatorLambda.compare(3, 2));
 
-        // Java 8 Lambda Syntax -- no need tp write in curly braces
+        // Java 8 Lambda Syntax -- no need to write in curly braces
         Comparator<Integer> comparatorLambda1 = (Integer a, Integer b) -> a.compareTo(b);
 
         System.out.println("Result with Lambda 2 : " + comparatorLambda1.compare(3, 2));
 
-        // Java 8 Lambda Syntax -- no neeed to define the type of a and b
+        // Java 8 Lambda Syntax -- no need to define the type of a and b
         Comparator<Integer> comparatorLambda2 = (a, b) -> {
             return a.compareTo(b);
         };
