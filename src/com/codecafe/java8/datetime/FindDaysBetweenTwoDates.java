@@ -15,6 +15,18 @@ public class FindDaysBetweenTwoDates {
         long numberOfDaysBetween = ChronoUnit.DAYS.between(date1, date2);
 
         System.out.println("Number of days between " + date1 + " and " + date2 + " = " + numberOfDaysBetween);
+
+        String dateBeforeString = "2021-05-31";
+        String dateAfterString = "2021-06-09";
+
+        // parse the dates
+        LocalDate dateBefore = LocalDate.parse(dateBeforeString);
+        LocalDate dateAfter = LocalDate.parse(dateAfterString);
+
+        numberOfDaysBetween = ChronoUnit.DAYS.between(dateBefore, dateAfter);
+
+        System.out.println("Number of days between " + dateBefore + " and " + dateAfter + " = " + numberOfDaysBetween);
+
     }
 
 }
